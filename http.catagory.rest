@@ -1,0 +1,16 @@
+### get all catagories
+GET http://localhost:7787/api/categories
+Accept: application/json
+
+### create a new catagory
+POST http://localhost:7787/api/categories
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name":"te"
+}
+
+### Get catagory by id
+GET http://localhost:7787/api/categories/63fb982a21e40ed7b2e71441
+Accept: application/json
