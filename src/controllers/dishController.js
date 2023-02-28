@@ -84,3 +84,24 @@ exports.getDishPhoto = (req, res) => {
     res.status(204).json({ message: "No data found" });
   }
 };
+
+exports.searchByCategory = async (req, res, next) => {
+  let { categories } = req.body;
+  let criteria = {};
+  try {
+    if (categories.length === 0) {
+      return next(createError(404, "No category specified"));
+    }
+    criteria = { category: { $in: categories } };
+    const result = await Dish.find(criteria)
+      .select("-photo")
+      .populate("category", {
+        name: 1,
+        _id: 1,
+      });
+    res.status(200).json(result);
+  } catch (error) {
+    console.log("Error Occured at searchByCategory in dish controller", error);
+    next(error);
+  }
+};
