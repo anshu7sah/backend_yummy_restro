@@ -1,5 +1,5 @@
 ### get all catagories
-GET http://localhost:7787/api/categories
+GET https://backend-yummy-restro.herokuapp.com/api/categories
 Accept: application/json
 
 ### create a new catagory
@@ -8,7 +8,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "name":"Icecream"
+    "name":"Panipuri"
 }
 
 ### Get catagory by id
